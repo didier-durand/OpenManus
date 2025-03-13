@@ -35,6 +35,7 @@ class CodePrompt(Prompt):
         "When you generate MARKDOWN text, enclose it with ```md at beginning and at end.",
         "When you generate JAVASCRIPT text, enclose it with ```js at beginning and at end.",
         "When you generate TYPESCRIPT text, enclose it with ```ts at beginning and at end.",
+        "When you generate a BASH script, enclose it with ```bash at beginning and at end.",
     ])
 
     def __repr__(self):
@@ -63,8 +64,10 @@ async def prompt_manus(prompt: str = ""):
 if __name__ == "__main__":
     request = CodePrompt()
     request.tasks = [
-        "generate a Python class called PolynomSolver which solves ax^2 + bx + c = 0 where numbers a,b,c are given as input on Solver instantiation.",
-        "generate a Python class called TestSolver based on unittest framework and which tests PolynomSolver as extensively as possible with edge cases",
+        "1. generate a Python class called PolynomSolver which solves ax^2 + bx + c = 0 where numbers a,b,c are given as input on Solver instantiation.",
+        "2.generate a Python class called TestSolver based on unittest framework and which tests PolynomSolver as extensively as possible with edge cases",
+        "3. generate the Bash shell that we should use to run generated tests on PolynomSolver.",
+        "4. run the code that you generates with code coverage active and report results to see how good this code is."
     ]
     print(str(request))
     asyncio.run(prompt_manus(str(request)))
