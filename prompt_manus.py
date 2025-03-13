@@ -63,8 +63,8 @@ async def prompt_manus(prompt: str = ""):
 if __name__ == "__main__":
     request = CodePrompt()
     request.tasks = [
-        "generate a Python program",
-        "generate a JSON data structure",
+        "generate a Python class called PolynomSolver which solves ax^2 + bx + c = 0 where numbers a,b,c are given as input on Solver instantiation.",
+        "generate a Python class called TestSolver based on unittest framework and which tests PolynomSolver as extensively as possible with edge cases",
     ]
     print(str(request))
     asyncio.run(prompt_manus(str(request)))
