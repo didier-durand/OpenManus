@@ -68,6 +68,7 @@ if __name__ == "__main__":
         "2.generate a Python class called TestSolver based on unittest framework and which tests PolynomSolver as extensively as possible with edge cases",
         "3. generate the Bash shell that we should use to run generated tests on PolynomSolver.",
         "4. run the code that you generates with code coverage active and report results to see how good this code is."
+        "5. generate code for a web interface that will allow a user to give values to parameters a, b & c for PolynomSolver and obtain the solutions for x."
     ]
     print(str(request))
     asyncio.run(prompt_manus(str(request)))
