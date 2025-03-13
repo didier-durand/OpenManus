@@ -1,0 +1,6 @@
+[llm]
+model = "QwQ-32b"
+base_url = "https://api.openai.com/v1"
+api_key = "<not-needed>"
+max_tokens = 4096
+temperature = 0.0
