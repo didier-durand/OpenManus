@@ -1,13 +1,13 @@
+import argparse
 import asyncio
 
 from app.agent.manus import Manus
 from app.logger import logger
 
 
-async def main():
+async def main(prompt: str = ""):
     agent = Manus()
     try:
-        prompt = input("Enter your prompt: ")
         if not prompt.strip():
             logger.warning("Empty prompt provided.")
             return
@@ -20,4 +20,11 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p","--prompt", type=str,help="task prompt for OpenManus")
+    args = parser.parse_args()
+    if args.prompt is not None:
+        user_prompt = args.prompt
+    else:
+        user_prompt = input("Enter your prompt:")
+    asyncio.run(main(prompt=user_prompt))
